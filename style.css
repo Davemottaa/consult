@@ -234,8 +234,8 @@ nav {
     transition: 0.3s; 
     border: 1px solid #222;
     /* Transparência */
-    background: rgba(21, 21, 21, 0.85) !important;
-    backdrop-filter: blur(5px);
+    background: #ffffff2f !important;
+    backdrop-filter: blur(1px);
     
     /* Garante centralização interna do conteúdo */
     display: flex;
@@ -260,7 +260,6 @@ nav {
     height: 60px;      
     object-fit: contain; 
     margin-bottom: 10px;
-    transition: 0.3s; /* Suaviza a transição de cor */
 }
 
 .market-card p {
@@ -519,7 +518,6 @@ nav {
 
 /* Tablets e Telas Médias */
 @media (max-width: 1024px) {
-    .container { padding: 0 15px; }
     .logo { font-size: 1.4rem; }
     .hero h1 { font-size: 3rem; }
     .section-title { font-size: 2rem; }
@@ -529,7 +527,6 @@ nav {
 /* Mobile Grande (768px) */
 @media (max-width: 768px) {
     .nav-links { display: none; }
-    .hero { height: 50vh; }
     .hero h1 { font-size: 2.2rem; padding: 0 15px; }
     .hero p { font-size: 0.95rem; margin: 15px; }
     .btn-main { padding: 12px 30px; font-size: 1rem; }
@@ -681,3 +678,45 @@ nav {
     
     .whatsapp-float { width: 40px; height: 40px; bottom: 12px; right: 12px; font-size: 20px; }
 }
+
+/* Mobile Mini (320px) */
+@media (max-width: 320px) {
+    .container { padding: 0 10px; }
+    .logo { font-size: 1rem; }
+    .logo span { display: none; }
+    
+    .hero h1 { font-size: 1.5rem; margin-bottom: 10px; }
+    .hero p { font-size: 0.85rem; margin: 10px 0; }
+    .btn-main { padding: 10px 20px; font-size: 0.9rem; }
+    
+    .stats-container { gap: 12px; padding: 20px;}
+    .stat-card { padding: 15px 10px; }
+    .stat-card i { font-size: 1.4rem; }
+    .stat-card h2 { font-size: 1.4rem; }
+    .stat-card p { font-size: 0.75rem; }
+    
+    .expertise-box { padding: 15px; }
+    .expertise-box h2 { font-size: 1.1rem; }
+    .expertise-box p { font-size: 0.85rem; }
+    
+    .market-card { padding: 12px 8px; }
+    .market-card img { height: 40px; }
+    .market-card p { font-size: 0.7rem; }
+    
+    .process-step { padding: 15px 12px; }
+    .step-number { font-size: 1.5rem; }
+    .process-step h3 { font-size: 0.95rem; }
+    .process-step p { font-size: 0.8rem; }
+    
+    .video-placeholder { height: 150px; }
+    .video-placeholder i { font-size: 2rem; }
+    .video-placeholder span { font-size: 0.8rem; }
+    
+    .cert-item { font-size: 0.85rem; }
+    .cert-item i { font-size: 1.3rem; }
+    
+    .faq-question { padding: 10px; font-size: 0.85rem; }
+    
+    .whatsapp-float { width: 40px; height: 40px; bottom: 12px; right: 12px; font-size: 20px; }
+}
+

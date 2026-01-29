@@ -5,30 +5,8 @@ window.onscroll = () => {
     else header.style.background = "transparent";
 };
 
-// Toggle Chat IA
-function toggleChat() {
-    document.getElementById('ai-chat').classList.toggle('closed');
-}
 
-// Simulação de Respostas da IA Akuma
-function askAI() {
-    const input = document.getElementById('user-input');
-    const content = document.getElementById('chat-content');
-    if(!input.value) return;
 
-    content.innerHTML += `<div class="msg user">${input.value}</div>`;
-    const query = input.value.toLowerCase();
-    input.value = "";
-
-    setTimeout(() => {
-        let reply = "Essa é uma excelente pergunta! Na nossa consultoria focamos em ROAS positivo. Vamos conversar no WhatsApp?";
-        if(query.includes("google")) reply = "No Google Ads, configuramos o GA4 e GTM para que você saiba exatamente de onde vêm suas vendas.";
-        if(query.includes("marketplace") || query.includes("shopee")) reply = "Integramos sua loja com os maiores marketplaces do Brasil para você vender em múltiplos canais simultaneamente.";
-        
-        content.innerHTML += `<div class="msg bot">${reply}</div>`;
-        content.scrollTop = content.scrollHeight;
-    }, 700);
-}
 
 // Contadores Animados
 const counters = document.querySelectorAll('.counter');
@@ -56,7 +34,7 @@ const canvas = document.getElementById('particleCanvas');
 const ctx = canvas.getContext('2d');
 
 let particles = [];
-const particleCount = 80;
+const particleCount = 150;
 
 function initCanvas() {
     canvas.width = window.innerWidth;
@@ -129,3 +107,20 @@ window.addEventListener('resize', initCanvas);
 initCanvas();
 createParticles();
 animate();
+
+
+const faqItems = document.querySelectorAll('.faq-item');
+
+faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+
+    question.addEventListener('click', () => {
+        faqItems.forEach(otherItem => {
+            if (otherItem !== item) {
+                otherItem.classList.remove('active');
+            }
+        });
+
+        item.classList.toggle('active');
+    });
+});
