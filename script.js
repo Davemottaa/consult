@@ -34,7 +34,7 @@ const canvas = document.getElementById('particleCanvas');
 const ctx = canvas.getContext('2d');
 
 let particles = [];
-const particleCount = 150;
+const particleCount = 120;
 
 function initCanvas() {
     canvas.width = window.innerWidth;
@@ -108,7 +108,7 @@ initCanvas();
 createParticles();
 animate();
 
-
+// FAQ Accordion
 const faqItems = document.querySelectorAll('.faq-item');
 
 faqItems.forEach(item => {
