@@ -260,8 +260,6 @@ nav {
     height: 60px;      
     object-fit: contain; 
     margin-bottom: 10px;
-    filter: grayscale(100%); 
-    opacity: 0.8;
     transition: 0.3s; /* Suaviza a transição de cor */
 }
 
