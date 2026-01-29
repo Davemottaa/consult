@@ -45,9 +45,9 @@ class Particle {
     constructor() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
-        this.vx = (Math.random() - 0.5) * 0.5;
-        this.vy = (Math.random() - 0.5) * 0.5;
-        this.radius = Math.random() * 2;
+        this.vx = (Math.random() - 1) * 1;
+        this.vy = (Math.random() - 1) * 1;
+        this.radius = Math.random() * 1;
     }
 
     draw() {
