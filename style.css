@@ -114,7 +114,6 @@ nav {
     display: grid; 
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
     gap: 30px; 
-    margin-top: -80px; 
 }
 
 .stat-card { 
@@ -269,6 +268,13 @@ nav {
     margin: 0;
 }
 
+#processos {
+    margin-bottom: 20px;
+}
+
+.process {
+    padding-bottom: 20px;
+}
 /* Responsividade do Grid Marketplaces */
 /* Se o ecrã for menor que 900px (Tablets) */
 @media (max-width: 900px) {
@@ -284,81 +290,7 @@ nav {
     }
 }
 
-/* =========================================
-   CHAT IA & WIDGETS
-   ========================================= */
-.chat-container { 
-    position: fixed; 
-    bottom: 20px; 
-    left: 20px; 
-    width: 320px; 
-    background: var(--card); 
-    border: 1px solid #333; 
-    border-radius: 15px; 
-    z-index: 1000; 
-    overflow: hidden; 
-}
 
-.chat-container.closed { height: 55px; }
-
-.chat-header { 
-    background: #1a1a1a; 
-    padding: 15px; 
-    cursor: pointer; 
-    display: flex; 
-    justify-content: space-between; 
-}
-
-.chat-content { 
-    height: 300px; 
-    padding: 15px; 
-    overflow-y: auto; 
-    display: flex; 
-    flex-direction: column; 
-    gap: 10px; 
-    font-size: 0.9rem; 
-}
-
-.msg { 
-    padding: 12px; 
-    border-radius: 10px; 
-    max-width: 85%; 
-}
-
-.bot { 
-    background: #333; 
-    align-self: flex-start; 
-}
-
-.user { 
-    background: var(--cyan); 
-    color: #000; 
-    align-self: flex-end; 
-}
-
-.chat-input-area { 
-    display: flex; 
-    padding: 10px; 
-    background: #1a1a1a; 
-}
-
-.chat-input-area input { 
-    flex: 1; 
-    background: #000; 
-    border: none; 
-    color: white; 
-    padding: 10px; 
-    border-radius: 5px; 
-}
-
-.chat-input-area button { 
-    background: var(--cyan); 
-    border: none; 
-    margin-left: 5px; 
-    padding: 0 15px; 
-    border-radius: 5px; 
-    cursor: pointer; 
-}
 
 /* =========================================
    FUNDO DE PARTÍCULAS
@@ -471,7 +403,7 @@ nav {
 
 .footer-bottom .container {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     flex-wrap: wrap;
     gap: 10px;
