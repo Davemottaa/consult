@@ -249,7 +249,7 @@ nav {
 }
 
 .market-card:hover img { 
-    filter: grayscale(0); 
+    filter: contrast(150%); 
     transform: scale(1.1); 
 }
 
