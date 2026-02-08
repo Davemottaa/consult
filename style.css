@@ -470,6 +470,35 @@ nav {
     box-shadow: 0 10px 30px rgba(0, 229, 255, 0.35);
 }
 
+.ai-chat-label {
+    position: absolute;
+    bottom: 72px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #0f0f0f;
+    color: var(--text);
+    border: 1px solid rgba(0, 229, 255, 0.35);
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    white-space: nowrap;
+    pointer-events: none;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+}
+
+.ai-chat-label::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 6px;
+    border-style: solid;
+    border-color: #0f0f0f transparent transparent transparent;
+}
+
 .chat-container {
     position: fixed;
     bottom: 100px;
@@ -638,6 +667,7 @@ nav {
     .footer-bottom .container { flex-direction: column; text-align: center; }
     .whatsapp-float { width: 50px; height: 50px; bottom: 20px; right: 20px; font-size: 25px; }
     .ai-chat-fab { width: 50px; height: 50px; bottom: 20px; left: 20px; font-size: 25px; }
+    .ai-chat-label { bottom: 62px; font-size: 0.72rem; }
     .chat-container { width: 280px; }
 }
 
@@ -704,6 +734,7 @@ nav {
     
     .whatsapp-float { width: 45px; height: 45px; bottom: 15px; right: 15px; font-size: 22px; }
     .ai-chat-fab { width: 45px; height: 45px; bottom: 15px; left: 15px; font-size: 22px; }
+    .ai-chat-label { bottom: 56px; font-size: 0.7rem; }
     .chat-container { width: 250px; bottom: 70px; left: 12px; }
     .chat-header { padding: 12px; font-size: 0.9rem; }
     .chat-input-area { padding: 8px; }
@@ -751,6 +782,7 @@ nav {
     
     .whatsapp-float { width: 40px; height: 40px; bottom: 12px; right: 12px; font-size: 20px; }
     .ai-chat-fab { width: 40px; height: 40px; bottom: 12px; left: 12px; font-size: 20px; }
+    .ai-chat-label { bottom: 52px; font-size: 0.68rem; }
 }
 
 /* Mobile Mini (320px) */
@@ -793,4 +825,5 @@ nav {
     
     .whatsapp-float { width: 40px; height: 40px; bottom: 12px; right: 12px; font-size: 20px; }
     .ai-chat-fab { width: 40px; height: 40px; bottom: 12px; left: 12px; font-size: 20px; }
+    .ai-chat-label { bottom: 52px; font-size: 0.68rem; }
 }
