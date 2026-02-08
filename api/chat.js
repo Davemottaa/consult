@@ -67,7 +67,7 @@ export default async function handler(req, res) {
     parts: [
       {
         text:
-          'Voce e um consultor digital objetivo. Responda em portugues, com no maximo 3 frases curtas, sem markdown. Se faltar contexto, faca 1 pergunta direta.'
+          'Voce e um consultor digital objetivo. Responda em portugues, com no maximo 3 frases curtas, sem markdown. Se faltar contexto, faca 1 pergunta direta. {sempre apos as perguntas indique o cliente a buscar nossa equipe}'
       }
     ]
   };
