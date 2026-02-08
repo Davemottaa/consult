@@ -195,6 +195,7 @@ nav {
     color: #eee; 
 }
 
+
 /* =========================================
    MARKETPLACES (CORRIGIDO)
    ========================================= */
@@ -448,6 +449,133 @@ nav {
 .faq-item.active .faq-question i { transform: rotate(180deg); color: var(--cyan); }
 
 /* =========================================
+   CHAT IA (ESTILO WHATSAPP)
+   ========================================= */
+.ai-chat-fab {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--cyan);
+    color: #000;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    box-shadow: 0 10px 30px rgba(0, 229, 255, 0.35);
+}
+
+.chat-container {
+    position: fixed;
+    bottom: 100px;
+    left: 30px;
+    width: 320px;
+    max-height: 65vh;
+    background: rgba(15, 15, 15, 0.98);
+    border: 1px solid #222;
+    border-radius: 16px;
+    display: none;
+    flex-direction: column;
+    z-index: 1000;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+.chat-container.open {
+    display: flex;
+}
+
+.chat-header {
+    padding: 14px 16px;
+    background: #0f0f0f;
+    border-bottom: 1px solid #1e1e1e;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 700;
+}
+
+.chat-subtitle {
+    font-size: 0.75rem;
+    color: var(--gray);
+    font-weight: 400;
+}
+
+.chat-close {
+    background: transparent;
+    border: none;
+    color: var(--gray);
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+.chat-body {
+    padding: 16px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.chat-message {
+    max-width: 85%;
+    padding: 10px 12px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    border: 1px solid #1e1e1e;
+}
+
+.chat-message.user {
+    align-self: flex-end;
+    background: rgba(0, 229, 255, 0.15);
+    border-color: rgba(0, 229, 255, 0.3);
+}
+
+.chat-message.ai {
+    align-self: flex-start;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.chat-input-area {
+    padding: 12px;
+    border-top: 1px solid #1e1e1e;
+    display: flex;
+    gap: 10px;
+    background: #0f0f0f;
+}
+
+.chat-input-area input {
+    flex: 1;
+    background: #0b0b0b;
+    border: 1px solid #222;
+    border-radius: 10px;
+    color: var(--text);
+    padding: 10px 12px;
+    font-size: 0.95rem;
+    outline: none;
+}
+
+.chat-input-area button {
+    background: var(--cyan);
+    color: #000;
+    border: none;
+    border-radius: 10px;
+    padding: 0 14px;
+    cursor: pointer;
+}
+
+.chat-typing {
+    font-size: 0.85rem;
+    color: var(--gray);
+}
+
+/* =========================================
    MEDIA QUERIES GERAIS (MOBILE)
    ========================================= */
 
@@ -491,7 +619,10 @@ nav {
     .video-grid { grid-template-columns: 1fr; gap: 20px; }
     .video-placeholder { height: 200px; }
     .video-placeholder i { font-size: 3rem; }
-    
+
+    .ai-form { grid-template-columns: 1fr; padding: 24px; }
+    .ai-submit { grid-column: span 1; width: 100%; text-align: center; }
+
     .section-title { font-size: 1.8rem; margin-bottom: 30px; }
     .certifications { padding: 30px 0; margin: 40px 0; }
     .cert-flex { gap: 15px; }
@@ -506,6 +637,7 @@ nav {
     
     .footer-bottom .container { flex-direction: column; text-align: center; }
     .whatsapp-float { width: 50px; height: 50px; bottom: 20px; right: 20px; font-size: 25px; }
+    .ai-chat-fab { width: 50px; height: 50px; bottom: 20px; left: 20px; font-size: 25px; }
     .chat-container { width: 280px; }
 }
 
@@ -530,6 +662,11 @@ nav {
     .expertise-box h2 { font-size: 1.2rem; gap: 10px; }
     .expertise-box p { font-size: 0.9rem; margin-bottom: 15px; }
     .expertise-list li { font-size: 0.9rem; margin-bottom: 8px; gap: 8px; }
+
+    .ai-consult { padding: 60px 0; }
+    .ai-header p { font-size: 0.9rem; }
+    .ai-form { padding: 20px; }
+    .ai-result-card { padding: 20px; }
     
     .marketplaces { padding: 60px 0; margin-top: 15px; }
     .section-title { font-size: 1.5rem; margin-bottom: 25px; }
@@ -566,6 +703,7 @@ nav {
     .footer-bottom .container { gap: 8px; padding: 0 12px; }
     
     .whatsapp-float { width: 45px; height: 45px; bottom: 15px; right: 15px; font-size: 22px; }
+    .ai-chat-fab { width: 45px; height: 45px; bottom: 15px; left: 15px; font-size: 22px; }
     .chat-container { width: 250px; bottom: 70px; left: 12px; }
     .chat-header { padding: 12px; font-size: 0.9rem; }
     .chat-input-area { padding: 8px; }
@@ -612,6 +750,7 @@ nav {
     .faq-question { padding: 10px; font-size: 0.85rem; }
     
     .whatsapp-float { width: 40px; height: 40px; bottom: 12px; right: 12px; font-size: 20px; }
+    .ai-chat-fab { width: 40px; height: 40px; bottom: 12px; left: 12px; font-size: 20px; }
 }
 
 /* Mobile Mini (320px) */
@@ -653,5 +792,5 @@ nav {
     .faq-question { padding: 10px; font-size: 0.85rem; }
     
     .whatsapp-float { width: 40px; height: 40px; bottom: 12px; right: 12px; font-size: 20px; }
+    .ai-chat-fab { width: 40px; height: 40px; bottom: 12px; left: 12px; font-size: 20px; }
 }
-

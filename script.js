@@ -124,3 +124,103 @@ faqItems.forEach(item => {
         item.classList.toggle('active');
     });
 });
+
+
+
+// Chat IA estilo WhatsApp
+const aiChatToggle = document.getElementById('aiChatToggle');
+const aiChatContainer = document.getElementById('aiChatContainer');
+const aiChatClose = document.getElementById('aiChatClose');
+const aiChatBody = document.getElementById('aiChatBody');
+const aiChatForm = document.getElementById('aiChatForm');
+const aiChatInput = document.getElementById('aiChatInput');
+
+const chatMessages = [];
+let chatInitialized = false;
+
+const appendMessage = (role, text) => {
+    const message = document.createElement('div');
+    message.className = `chat-message ${role}`;
+    message.textContent = text;
+    aiChatBody.appendChild(message);
+    aiChatBody.scrollTop = aiChatBody.scrollHeight;
+};
+
+const appendTyping = () => {
+    const typing = document.createElement('div');
+    typing.className = 'chat-typing';
+    typing.id = 'aiTyping';
+    typing.textContent = 'Digitando...';
+    aiChatBody.appendChild(typing);
+    aiChatBody.scrollTop = aiChatBody.scrollHeight;
+};
+
+const removeTyping = () => {
+    const typing = document.getElementById('aiTyping');
+    if (typing) typing.remove();
+};
+
+const openChat = () => {
+    aiChatContainer.classList.add('open');
+    aiChatContainer.setAttribute('aria-hidden', 'false');
+    if (!chatInitialized) {
+        appendMessage(
+            'ai',
+            'Oi! Sou a IA da 360° AURA. Qual sua duvida sobre vendas, trafego ou marketplaces?'
+        );
+        chatInitialized = true;
+    }
+    setTimeout(() => aiChatInput?.focus(), 100);
+};
+
+const closeChat = () => {
+    aiChatContainer.classList.remove('open');
+    aiChatContainer.setAttribute('aria-hidden', 'true');
+};
+
+if (aiChatToggle && aiChatContainer) {
+    aiChatToggle.addEventListener('click', openChat);
+}
+
+if (aiChatClose) {
+    aiChatClose.addEventListener('click', closeChat);
+}
+
+if (aiChatForm && aiChatInput) {
+    aiChatForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const text = aiChatInput.value.trim();
+        if (!text) return;
+
+        aiChatInput.value = '';
+        appendMessage('user', text);
+        chatMessages.push({ role: 'user', content: text });
+
+        const history = chatMessages.slice(-10);
+        appendTyping();
+
+        try {
+            const response = await fetch('/api/chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ messages: history })
+            });
+
+            const data = await response.json();
+            removeTyping();
+
+            if (!response.ok) {
+                appendMessage('ai', data.error || 'Erro ao responder.');
+                return;
+            }
+
+            const reply = data.text || 'Sem resposta.';
+            chatMessages.push({ role: 'assistant', content: reply });
+            appendMessage('ai', reply);
+        } catch (err) {
+            removeTyping();
+            appendMessage('ai', 'Erro de conexao. Tente novamente.');
+        }
+    });
+}
