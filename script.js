@@ -134,6 +134,13 @@ const aiChatClose = document.getElementById('aiChatClose');
 const aiChatBody = document.getElementById('aiChatBody');
 const aiChatForm = document.getElementById('aiChatForm');
 const aiChatInput = document.getElementById('aiChatInput');
+const API_BASE = (() => {
+    if (window.location.protocol === 'file:') return 'http://localhost:3002';
+    if (window.location.hostname === 'localhost' && window.location.port !== '3002') {
+        return 'http://localhost:3002';
+    }
+    return '';
+})();
 
 const chatMessages = [];
 let chatInitialized = false;
@@ -201,17 +208,18 @@ if (aiChatForm && aiChatInput) {
         appendTyping();
 
         try {
-            const response = await fetch('/api/chat', {
+            const response = await fetch(`${API_BASE}/api/chat`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ messages: history })
             });
 
-            const data = await response.json();
+            const data = await response.json().catch(() => ({}));
             removeTyping();
 
             if (!response.ok) {
-                appendMessage('ai', data.error || 'Erro ao responder.');
+                const statusInfo = response.status ? ` (HTTP ${response.status})` : '';
+                appendMessage('ai', data.error || `Erro ao responder${statusInfo}.`);
                 return;
             }
 
@@ -220,7 +228,10 @@ if (aiChatForm && aiChatInput) {
             appendMessage('ai', reply);
         } catch (err) {
             removeTyping();
-            appendMessage('ai', 'Erro de conexao. Tente novamente.');
+            appendMessage(
+                'ai',
+                'Erro de conexao com o servidor da IA. Verifique se o backend esta rodando em http://localhost:3002.'
+            );
         }
     });
 }
