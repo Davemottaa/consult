@@ -17,7 +17,7 @@ const parseBody = (req) => {
   return req.body;
 };
 
-module.exports = async (req, res) => {
+export default async function handler(req, res) {
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST');
     return res.status(405).json({ error: 'Metodo nao permitido.' });
@@ -106,4 +106,4 @@ module.exports = async (req, res) => {
   } catch {
     return res.status(500).json({ error: 'Erro interno ao consultar a IA.' });
   }
-};
+}
